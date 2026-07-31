@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Passaporte para a Fluência — Curso de Inglês</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#16213E;
+    --navy-deep:#0E1730;
+    --cream:#F7F2E7;
+    --cream-dim:#EDE6D6;
+    --amber:#E2A73E;
+    --teal:#3B7A6E;
+    --ink:#22262B;
+    --ink-soft:#565B62;
+    --line:rgba(22,33,62,0.14);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Work Sans',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+  }
+  .mono{font-family:'Space Mono',monospace;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:
+      radial-gradient(circle at 85% 10%, rgba(226,167,62,0.16), transparent 45%),
+      radial-gradient(circle at 10% 90%, rgba(59,122,110,0.18), transparent 40%),
+      var(--navy);
+    color:var(--cream);
+    padding:64px 24px 90px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background-image: repeating-linear-gradient(0deg, rgba(247,242,231,0.035) 0px, rgba(247,242,231,0.035) 1px, transparent 1px, transparent 40px);
+    pointer-events:none;
+  }
+  .hero-inner{max-width:1040px;margin:0 auto;position:relative;}
+  .eyebrow{
+    font-family:'Space Mono',monospace;
+    font-size:12.5px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--amber);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:22px;
+  }
+  .eyebrow::before{content:"";width:24px;height:1px;background:var(--amber);}
+  .hero h1{
+    font-size:clamp(40px,6.2vw,78px);
+    line-height:0.98;
+    margin:0 0 20px;
+    max-width:820px;
+  }
+  .hero h1 em{font-style:italic;color:var(--amber);}
+  .hero p.lede{
+    font-size:18px;
+    line-height:1.6;
+    max-width:520px;
+    color:rgba(247,242,231,0.78);
+    margin:0 0 40px;
+  }
+
+  .passport-card{
+    background:var(--cream);
+    color:var(--ink);
+    border-radius:14px;
+    max-width:560px;
+    padding:26px 28px;
+    box-shadow:0 30px 60px -20px rgba(0,0,0,0.5);
+    border:1px solid rgba(22,33,62,0.08);
+    position:relative;
+  }
+  .passport-card::before{
+    content:"PASSAPORTE • FLUÊNCIA";
+    position:absolute;
+    top:-11px;left:26px;
+    background:var(--amber);
+    color:var(--navy-deep);
+    font-family:'Space Mono',monospace;
+    font-size:10.5px;
+    letter-spacing:0.1em;
+    padding:4px 10px;
+    border-radius:20px;
+    font-weight:700;
+  }
+  .passport-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px 24px;
+    margin-top:10px;
+  }
+  .passport-grid .field{border-bottom:1px dashed var(--line);padding-bottom:10px;}
+  .passport-grid .label{
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    letter-spacing:0.09em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-bottom:4px;
+  }
+  .passport-grid .value{font-size:15px;font-weight:600;}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(247,242,231,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:1040px;margin:0 auto;
+    padding:14px 24px;
+    display:flex;align-items:center;justify-content:space-between;
+    gap:16px;
+  }
+  .nav-brand{font-family:'Fraunces',serif;font-weight:700;font-size:17px;}
+  .nav-links{display:flex;gap:26px;font-size:14px;}
+  .nav-links a{color:var(--ink);text-decoration:none;font-weight:500;}
+  .nav-links a:hover{color:var(--teal);}
+  .progress-pill{
+    font-family:'Space Mono',monospace;
+    font-size:11.5px;
+    background:var(--navy);
+    color:var(--cream);
+    padding:6px 12px;
+    border-radius:20px;
+  }
+
+  section{max-width:1040px;margin:0 auto;padding:88px 24px;}
+  .section-head{max-width:600px;margin-bottom:48px;}
+  .section-head .eyebrow{color:var(--teal);}
+  .section-head h2{font-size:clamp(28px,3.6vw,42px);margin:0 0 14px;color:var(--navy);}
+  .section-head p{color:var(--ink-soft);font-size:16px;line-height:1.6;margin:0;}
+
+  /* ---------- JOURNEY MAP (60 stamps) ---------- */
+  .phase-block{margin-bottom:44px;}
+  .phase-title{
+    display:flex;align-items:baseline;gap:12px;
+    margin-bottom:16px;
+  }
+  .phase-title .n{font-family:'Space Mono',monospace;color:var(--amber);font-weight:700;font-size:13px;}
+  .phase-title h3{font-size:19px;margin:0;color:var(--navy);}
+  .phase-title .range{font-family:'Space Mono',monospace;font-size:11px;color:var(--ink-soft);margin-left:auto;}
+  .stamp-row{display:flex;flex-wrap:wrap;gap:10px;}
+  .stamp{
+    width:44px;height:44px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Space Mono',monospace;font-size:12px;font-weight:700;
+    border:1.5px solid var(--line);
+    background:#fff;color:var(--ink-soft);
+    cursor:default;position:relative;
+    transition:transform .15s ease;
+  }
+  .stamp.done{
+    background:var(--teal);border-color:var(--teal);color:#fff;
+    box-shadow:0 4px 10px -4px rgba(59,122,110,0.6);
+  }
+  .stamp.current{
+    background:var(--amber);border-color:var(--amber);color:var(--navy-deep);
+    box-shadow:0 0 0 4px rgba(226,167,62,0.25);
+  }
+  .stamp:hover{transform:translateY(-3px);}
+  .stamp .tip{
+    position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);
+    background:var(--navy);color:var(--cream);
+    font-family:'Work Sans',sans-serif;font-size:11.5px;font-weight:500;
+    padding:6px 10px;border-radius:6px;white-space:nowrap;
+    opacity:0;pointer-events:none;transition:opacity .15s ease;
+    z-index:10;
+  }
+  .stamp:hover .tip{opacity:1;}
+
+  /* ---------- MODULE 1 OPEN SPREAD ---------- */
+  .spread{
+    background:#fff;
+    border-radius:18px;
+    border:1px solid var(--line);
+    box-shadow:0 40px 80px -40px rgba(22,33,62,0.35);
+    overflow:hidden;
+  }
+  .spread-head{
+    background:var(--navy);
+    color:var(--cream);
+    padding:34px 36px;
+    display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;
+  }
+  .spread-head .num{font-family:'Space Mono',monospace;color:var(--amber);font-size:13px;letter-spacing:.1em;}
+  .spread-head h3{margin:6px 0 0;font-size:28px;}
+  .tabs{
+    display:flex;flex-wrap:wrap;gap:4px;
+    padding:18px 36px 0;
+    border-bottom:1px solid var(--line);
+    background:var(--cream-dim);
+  }
+  .tab-btn{
+    font-family:'Work Sans',sans-serif;
+    font-size:13.5px;font-weight:600;
+    padding:10px 16px;border:none;background:transparent;
+    color:var(--ink-soft);cursor:pointer;
+    border-bottom:2.5px solid transparent;
+    margin-bottom:-1px;
+  }
+  .tab-btn.active{color:var(--navy);border-bottom-color:var(--amber);}
+  .tab-panel{display:none;padding:34px 36px 40px;}
+  .tab-panel.active{display:block;}
+
+  .obj-list{list-style:none;padding:0;margin:0 0 8px;}
+  .obj-list li{
+    padding:10px 0 10px 26px;position:relative;
+    border-bottom:1px solid var(--line);
+    font-size:15px;line-height:1.5;
+  }
+  .obj-list li::before{content:"✓";position:absolute;left:0;color:var(--teal);font-weight:700;}
+
+  /* flashcards */
+  .flash-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;}
+  .flash{
+    perspective:1000px;height:104px;cursor:pointer;
+  }
+  .flash-inner{
+    position:relative;width:100%;height:100%;
+    transform-style:preserve-3d;transition:transform .5s cubic-bezier(.4,.2,.2,1);
+  }
+  .flash.flipped .flash-inner{transform:rotateY(180deg);}
+  .flash-face{
+    position:absolute;inset:0;
+    border-radius:10px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    backface-visibility:hidden;
+    padding:8px;text-align:center;
+  }
+  .flash-front{background:var(--navy);color:var(--cream);}
+  .flash-front .word{font-family:'Fraunces',serif;font-weight:600;font-size:16px;}
+  .flash-front .ipa{font-family:'Space Mono',monospace;font-size:10.5px;color:var(--amber);margin-top:5px;}
+  .flash-back{background:var(--amber);color:var(--navy-deep);transform:rotateY(180deg);}
+  .flash-back .tr{font-weight:700;font-size:15px;}
+  .flash-back .ex{font-size:10.5px;margin-top:5px;line-height:1.3;opacity:.85;}
+
+  .dialog-box{
+    background:var(--cream-dim);
+    border-left:3px solid var(--teal);
+    border-radius:0 10px 10px 0;
+    padding:22px 26px;
+    font-size:15.5px;line-height:2;
+  }
+  .dialog-box .who{font-family:'Space Mono',monospace;color:var(--teal);font-weight:700;margin-right:6px;}
+
+  .quiz-item{
+    border:1px solid var(--line);border-radius:10px;
+    padding:18px 20px;margin-bottom:12px;
+  }
+  .quiz-item p.q{margin:0 0 12px;font-weight:600;font-size:15px;}
+  .quiz-options{display:flex;flex-direction:column;gap:8px;}
+  .quiz-options button{
+    text-align:left;
+    padding:9px 12px;border-radius:7px;
+    border:1px solid var(--line);background:#fff;
+    font-family:'Work Sans',sans-serif;font-size:14px;cursor:pointer;
+    transition:background .15s;
+  }
+  .quiz-options button:hover{background:var(--cream-dim);}
+  .quiz-options button.correct{background:var(--teal);color:#fff;border-color:var(--teal);}
+  .quiz-options button.wrong{background:#d9534f;color:#fff;border-color:#d9534f;}
+
+  .grammar-table{width:100%;border-collapse:collapse;font-size:14.5px;margin-bottom:20px;}
+  .grammar-table th,.grammar-table td{padding:10px 14px;border-bottom:1px solid var(--line);text-align:left;}
+  .grammar-table th{font-family:'Space Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-soft);}
+
+  .next-cta{
+    margin-top:60px;
+    background:var(--navy);
+    border-radius:16px;
+    padding:44px 40px;
+    color:var(--cream);
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px;
+  }
+  .next-cta h3{margin:0 0 8px;font-size:24px;}
+  .next-cta p{margin:0;color:rgba(247,242,231,0.75);font-size:14.5px;max-width:420px;}
+  .next-cta .badge{
+    font-family:'Space Mono',monospace;
+    background:var(--amber);color:var(--navy-deep);
+    padding:12px 22px;border-radius:8px;font-weight:700;font-size:13px;
+    white-space:nowrap;
+  }
+
+  footer{
+    text-align:center;padding:40px 24px 60px;
+    font-family:'Space Mono',monospace;font-size:11.5px;
+    color:var(--ink-soft);
+  }
+
+  @media(max-width:640px){
+    .passport-grid{grid-template-columns:1fr;}
+    .nav-links{display:none;}
+    section{padding:60px 20px;}
+    .spread-head,.tabs,.tab-panel{padding-left:22px;padding-right:22px;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-brand">passaporte<span style="color:var(--amber)">.</span>fluência</div>
+    <div class="nav-links">
+      <a href="#jornada">Jornada</a>
+      <a href="#modulo1">Módulo 1</a>
+    </div>
+    <div class="progress-pill">01 / 60 carimbado</div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Curso de Inglês — A0 → C2</div>
+    <h1>Seu <em>passaporte</em><br>para falar inglês<br>de verdade.</h1>
+    <p class="lede">60 módulos, um carimbo por vez. Do alfabeto até assistir filme sem legenda, ler o que quiser e trabalhar em inglês — no seu ritmo, dois dias por semana.</p>
+
+    <div class="passport-card">
+      <div class="passport-grid">
+        <div class="field"><div class="label">Titular</div><div class="value">Estudante de Eng. de Software</div></div>
+        <div class="field"><div class="label">Nível atual</div><div class="value">A0 — Iniciante</div></div>
+        <div class="field"><div class="label">Origem</div><div class="value">Goiás, Brasil</div></div>
+        <div class="field"><div class="label">Destino</div><div class="value">Fluência (C2)</div></div>
+        <div class="field"><div class="label">Carga horária</div><div class="value">Sáb + Dom, 2–3h</div></div>
+        <div class="field"><div class="label">Status</div><div class="value" style="color:var(--teal);">Módulo 1 em andamento</div></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="jornada">
+  <div class="section-head">
+    <div class="eyebrow">A rota completa</div>
+    <h2>Seis trechos da viagem, 60 carimbos</h2>
+    <p>Cada círculo é um módulo. O verde é o que você já carimbou, o âmbar é onde você está agora. Passe o mouse pra ver o nome de cada parada.</p>
+  </div>
+
+  <div id="journey-map"></div>
+</section>
+
+<section id="modulo1">
+  <div class="section-head">
+    <div class="eyebrow">Página aberta do passaporte</div>
+    <h2>Módulo 1 — Saudações e primeira apresentação</h2>
+    <p>Alfabeto, sons que não existem em português, como cumprimentar, se apresentar e sobreviver a um primeiro encontro em inglês.</p>
+  </div>
+
+  <div class="spread">
+    <div class="spread-head">
+      <div>
+        <div class="num">CARIMBO Nº 01 · FASE 1 — FUNDAMENTOS</div>
+        <h3>Hello, my name is...</h3>
+      </div>
+      <div class="mono" style="font-size:12px;opacity:.8;">30 palavras · 10 expressões · 20 exercícios</div>
+    </div>
+
+    <div class="tabs" id="tabs">
+      <button class="tab-btn active" data-tab="objetivos">Objetivos</button>
+      <button class="tab-btn" data-tab="vocab">Vocabulário</button>
+      <button class="tab-btn" data-tab="gramatica">Gramática</button>
+      <button class="tab-btn" data-tab="dialogo">Diálogo</button>
+      <button class="tab-btn" data-tab="quiz">Exercícios</button>
+    </div>
+
+    <div class="tab-panel active" data-panel="objetivos">
+      <ul class="obj-list">
+        <li>Pronunciar o alfabeto e os sons mais diferentes do português (o "th" de thank you, por exemplo)</li>
+        <li>Cumprimentar alguém de forma formal e informal, na hora certa do dia</li>
+        <li>Se apresentar: nome, idade, país, profissão/ocupação</li>
+        <li>Perguntar essas mesmas informações para outra pessoa</li>
+        <li>Usar o verbo <strong>to be</strong> nas formas básicas (I am, you are, he is...)</li>
+      </ul>
+      <p style="color:var(--ink-soft);font-size:14.5px;line-height:1.6;margin-top:18px;">
+        <strong style="color:var(--ink);">Por que começar aqui:</strong> "How are you?" muitas vezes não é uma pergunta de verdade sobre como você está — é só uma forma de cumprimentar, tipo "tudo bem?" no Brasil. A resposta esperada é curta e positiva, mesmo que seu dia não esteja tão bom assim.
+      </p>
+    </div>
+
+    <div class="tab-panel" data-panel="vocab">
+      <p style="color:var(--ink-soft);font-size:14px;margin-top:0 0 18px;">Clique em cada cartão pra virar e ver a tradução.</p>
+      <div class="flash-grid" id="flashGrid"></div>
+    </div>
+
+    <div class="tab-panel" data-panel="gramatica">
+      <p style="margin-top:0;font-size:15px;line-height:1.6;">O verbo <strong>to be</strong> (ser/estar) muda de forma dependendo do pronome. É o verbo mais usado do inglês — comece decorando essa tabela:</p>
+      <table class="grammar-table">
+        <tr><th>Pronome</th><th>To be</th><th>Forma curta</th><th>Exemplo</th></tr>
+        <tr><td>I</td><td>am</td><td>I'm</td><td>I'm Brazilian.</td></tr>
+        <tr><td>You</td><td>are</td><td>You're</td><td>You're my friend.</td></tr>
+        <tr><td>He / She / It</td><td>is</td><td>He's / She's</td><td>She's a teacher.</td></tr>
+        <tr><td>We</td><td>are</td><td>We're</td><td>We're students.</td></tr>
+        <tr><td>They</td><td>are</td><td>They're</td><td>They're from the USA.</td></tr>
+      </table>
+      <p style="font-size:14px;color:var(--ink-soft);">💡 Na fala real, quase ninguém usa a forma longa ("I am") — o normal é sempre a contração ("I'm").</p>
+    </div>
+
+    <div class="tab-panel" data-panel="dialogo">
+      <p style="margin-top:0;font-size:14.5px;color:var(--ink-soft);">Situação: primeiro dia de aula. Leia em voz alta imitando o ritmo — isso se chama <em>shadowing</em>.</p>
+      <div class="dialog-box">
+        <div><span class="who">A:</span>Hi! I'm Ana. What's your name?</div>
+        <div><span class="who">B:</span>Hi, Ana! My name is Lucas. Nice to meet you.</div>
+        <div><span class="who">A:</span>Nice to meet you too. Where are you from?</div>
+        <div><span class="who">B:</span>I'm from São Paulo. And you?</div>
+        <div><span class="who">A:</span>I'm from Goiás. How old are you?</div>
+        <div><span class="who">B:</span>I'm 18. And you?</div>
+        <div><span class="who">A:</span>I'm 18 too!</div>
+      </div>
+    </div>
+
+    <div class="tab-panel" data-panel="quiz">
+      <p style="margin-top:0;font-size:14px;color:var(--ink-soft);">Clique na resposta certa.</p>
+      <div id="quizList"></div>
+    </div>
+  </div>
+
+  <div class="next-cta">
+    <div>
+      <h3>Pronto pro próximo carimbo?</h3>
+      <p>O Módulo 2 fecha o verbo "to be" por completo e apresenta os pronomes pessoais. Volte na conversa com o Claude e escreva "Continue".</p>
+    </div>
+    <div class="badge">MÓDULO 02 — EM BREVE</div>
+  </div>
+</section>
+
+<footer>PASSAPORTE PARA A FLUÊNCIA · CURSO PERSONALIZADO · MÓDULO 01 DE 60</footer>
+
+<script>
+// ---------- JOURNEY MAP ----------
+const phases = [
+  {title:"Fundamentos absolutos", range:"A0 → A1", start:1, end:10, names:[
+    "Alfabeto & saudações","To be & pronomes","Artigos & plural","Números & datas",
+    "Presente simples I","Presente simples II","Have got & família","Preposições de lugar",
+    "Adjetivos & comparação","Revisão A1"
+  ]},
+  {title:"Consolidando o básico", range:"A1 → A2", start:11, end:20, names:[
+    "Presente contínuo","Passado simples I","Passado simples II","Passado contínuo",
+    "Futuro (going to/will)","Modais básicos","Comparativos completos","Contáveis/incontáveis",
+    "Movimento & phrasals","Revisão A2"
+  ]},
+  {title:"Ganhando fluência", range:"A2 → B1", start:21, end:32, names:[
+    "Present Perfect I","Present Perfect vs Past","Present Perfect Cont.","Voz passiva I",
+    "Zero & 1º Condicional","2º Condicional","Reported speech I","Phrasals temáticos",
+    "Conectores","Vocab. trabalho","Vocab. viagens","Revisão B1"
+  ]},
+  {title:"Fluência intermediária", range:"B1 → B2", start:33, end:44, names:[
+    "3º Condicional","Past Perfect","Voz passiva II","Reported speech II",
+    "Orações relativas","Modais avançados","Phrasals & idioms","Entrevistas & e-mails",
+    "Vocab. acadêmico","Gírias do dia a dia","AmE vs BrE","Revisão B2"
+  ]},
+  {title:"Rumo à fluência avançada", range:"B2 → C1", start:45, end:54, names:[
+    "Inversão & ênfase","Subjuntivo","Collocations","Filmes sem legenda",
+    "Música em inglês","Livros em inglês","Debate","Inglês de negócios",
+    "Redação avançada","Revisão C1"
+  ]},
+  {title:"Domínio e maestria", range:"C1 → C2", start:55, end:60, names:[
+    "Nuances culturais","Registro linguístico","Entrevistas internacionais",
+    "Produção de conteúdo","Simulado final","Manutenção da fluência"
+  ]},
+];
+
+const map = document.getElementById('journey-map');
+phases.forEach(ph=>{
+  const block = document.createElement('div');
+  block.className='phase-block';
+  block.innerHTML = `
+    <div class="phase-title">
+      <span class="n">FASE</span><h3>${ph.title}</h3>
+      <span class="range">${ph.range} · módulos ${String(ph.start).padStart(2,'0')}–${String(ph.end).padStart(2,'0')}</span>
+    </div>
+    <div class="stamp-row">
+      ${ph.names.map((name,i)=>{
+        const num = ph.start+i;
+        let cls='';
+        if(num===1) cls='done';
+        else if(num===2) cls='current';
+        return `<div class="stamp ${cls}">${String(num).padStart(2,'0')}<span class="tip">${name}</span></div>`;
+      }).join('')}
+    </div>
+  `;
+  map.appendChild(block);
+});
+
+// ---------- TABS ----------
+document.querySelectorAll('.tab-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelector(`.tab-panel[data-panel="${btn.dataset.tab}"]`).classList.add('active');
+  });
+});
+
+// ---------- FLASHCARDS ----------
+const words = [
+  {w:"Hello", ipa:"/həˈloʊ/", tr:"Olá", ex:"Hello, my name is Ana."},
+  {w:"Good morning", ipa:"/ɡʊd ˈmɔːrnɪŋ/", tr:"Bom dia", ex:"Good morning, everyone!"},
+  {w:"Nice to meet you", ipa:"/naɪs tuː miːt juː/", tr:"Prazer em conhecê-lo(a)", ex:"Só na 1ª vez que conhece alguém"},
+  {w:"Thank you", ipa:"/θæŋk juː/", tr:"Obrigado(a)", ex:"Thank you very much."},
+  {w:"Sorry", ipa:"/ˈsɒri/", tr:"Desculpe", ex:"I'm sorry, I'm late."},
+  {w:"Excuse me", ipa:"/ɪkˈskjuːz miː/", tr:"Com licença", ex:"Excuse me, where's the bathroom?"},
+  {w:"Name", ipa:"/neɪm/", tr:"Nome", ex:"What's your name?"},
+  {w:"Country", ipa:"/ˈkʌntri/", tr:"País", ex:"Which country are you from?"},
+  {w:"Friend", ipa:"/frend/", tr:"Amigo", ex:"He is my friend."},
+  {w:"Student", ipa:"/ˈstuːdənt/", tr:"Estudante", ex:"I'm a student."},
+  {w:"Brazilian", ipa:"/brəˈzɪljən/", tr:"Brasileiro", ex:"I'm Brazilian."},
+  {w:"Fine", ipa:"/faɪn/", tr:"Bem", ex:"I'm fine, thanks."},
+];
+
+const flashGrid = document.getElementById('flashGrid');
+words.forEach(item=>{
+  const card = document.createElement('div');
+  card.className='flash';
+  card.innerHTML = `
+    <div class="flash-inner">
+      <div class="flash-face flash-front">
+        <div class="word">${item.w}</div>
+        <div class="ipa">${item.ipa}</div>
+      </div>
+      <div class="flash-face flash-back">
+        <div class="tr">${item.tr}</div>
+        <div class="ex">${item.ex}</div>
+      </div>
+    </div>
+  `;
+  card.addEventListener('click',()=>card.classList.toggle('flipped'));
+  flashGrid.appendChild(card);
+});
+
+// ---------- QUIZ ----------
+const quiz = [
+  {q:"O que você diz ao conhecer alguém pela primeira vez?", options:["Long time no see","Nice to meet you","Good night","You're welcome"], correct:1},
+  {q:"Complete: \"I ___ Brazilian.\"", options:["is","am","are","be"], correct:1},
+  {q:"Qual saudação se usa ao chegar em algum lugar à noite?", options:["Good morning","Good afternoon","Good evening","Good night"], correct:2},
+  {q:"\"Thank you very much!\" — qual a resposta certa?", options:["You're welcome","Nice to meet you","Good morning","Excuse me"], correct:0},
+];
+
+const quizList = document.getElementById('quizList');
+quiz.forEach(item=>{
+  const box = document.createElement('div');
+  box.className='quiz-item';
+  box.innerHTML = `
+    <p class="q">${item.q}</p>
+    <div class="quiz-options">
+      ${item.options.map((opt,i)=>`<button data-i="${i}">${opt}</button>`).join('')}
+    </div>
+  `;
+  const buttons = box.querySelectorAll('button');
+  buttons.forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      buttons.forEach(b=>b.disabled=true);
+      const i = parseInt(btn.dataset.i);
+      if(i===item.correct){btn.classList.add('correct');}
+      else{
+        btn.classList.add('wrong');
+        buttons[item.correct].classList.add('correct');
+      }
+    });
+  });
+  quizList.appendChild(box);
+});
+</script>
+</body>
+</html>
